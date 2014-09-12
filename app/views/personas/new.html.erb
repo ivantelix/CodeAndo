@@ -1,0 +1,40 @@
+<h1>Bienvenido a tu Perfil</h1>
+<h1>Termina de completar tu informacion personal</h1>
+
+<%= form_for @persona do |f| %>
+	<% if @persona.errors.any? %>
+		<div class="error_messages">
+			<h2>Form is invalid</h2>
+          <ul>
+            <% for message in @persona.errors.full_messages %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+	<%end%>
+
+  <!-- Le a#adi este campo para al momento de crear la persona ya se vaya con el id del usuario-->
+  <input type="hidden" value="<%= session[:persona_id] %>" name= "persona[persona_id]">
+	<p>
+		<%= f.label :nombres %><br />
+		<%= f.text_field :nombres %> 
+	</p>
+	<p>
+		<%= f.label :apellidos %><br />
+		<%= f.text_field :apellidos %> 
+	</p>
+	<p>
+		<%= f.label :cedula %><br />
+		<%= f.text_field :cedula %> 
+	</p>
+    <p>
+      <%= f.label :sexo %><br />
+      <%= f.text_field :sexo%>
+    </p>
+    <p>
+      <%= f.label :fecha_nacimiento %><br />
+      <%= f.date_select :fecha_nacimiento %>
+    </p>
+    <p class="button"><%= submit_tag "Guardar Cambios"%></p> 
+
+<% end %>

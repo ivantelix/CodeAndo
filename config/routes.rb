@@ -1,4 +1,24 @@
 CodeAndo::Application.routes.draw do
+
+
+ #Esta es nuestra ruta principal 
+ root :to => 'bienvenidos#index'
+ 
+ get "principal" => "bienvenidos#index", :as => "principal"
+ 
+ get "registrarse" => "usuarios#new", :as => "registrarse"
+ get "logueo" => "sesiones#new", :as => "logueo"
+ get "logout" => "sesiones#destroy", :as => "logout"
+ get "inicio" => "inicio#index", :as => "inicio"
+ get "dat" => "personas#new", :as => "dat"
+
+  resources :bienvenidos
+  resources :sesiones
+  resources :usuarios
+  resources :inicio
+  resources :personas
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +68,8 @@ CodeAndo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+    
+
 
   # See how all your routes lay out with "rake routes"
 

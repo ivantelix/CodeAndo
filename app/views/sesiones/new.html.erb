@@ -1,0 +1,20 @@
+<h1>Iniciar sesion</h1> 
+
+<%= form_tag sesiones_path do %>
+	<p>
+		<%= label_tag :usuario %></br>
+		<%= text_field_tag :usuario %>
+	</p>
+	<p>
+		<%= label_tag :password %></br>
+		<%= password_field_tag :password %>
+	</p>
+
+	<p class="button"><%= submit_tag "Iniciar sesion"%></p>  
+
+<% end %>
+
+ 
+ 
+  
+
